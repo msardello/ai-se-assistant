@@ -44,7 +44,6 @@ def run_pipeline(input_csv=None, top_n=None, validate_only=False):
 
     # Step 1: Load the data safely
     df = safe_load_csv(input_csv)
-    # print("Loaded CSV successfully.")
     logging.info("Loaded CSV successfully.")
 
     # Step 2: Validate required columns
@@ -58,7 +57,6 @@ def run_pipeline(input_csv=None, top_n=None, validate_only=False):
     # Step 3: Generate summary objects
     summary = pipeline_summary(df)
     owners = pipeline_by_owner(df).to_dict(orient="records")
-    # top3 = top_n_deals(df, top_n).to_dict(orient="records")
     top_deals = top_n_deals(df, top_n).to_dict(orient="records")
 
     # Step 4: Save results
@@ -78,14 +76,6 @@ def run_pipeline(input_csv=None, top_n=None, validate_only=False):
     return results
 
 
-# if __name__ == "__main__":
-#     run_pipeline("data/opportunities.csv")
-# import sys
-
-# if __name__ == "__main__":
-#     input_file = sys.argv[1] if len(sys.argv) > 1 else "data/opportunities.csv"
-#     run_pipeline(input_file)
-
 import argparse
 
 if __name__ == "__main__":
@@ -96,15 +86,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input",
         type=str,
-        # default="data/opportunities.csv",
-        # help="Path to the input CSV file",
         help="Optional: override default CSV file from config.yaml",
     )
 
     parser.add_argument(
         "--top",
         type=int,
-        # default=3,
         help="Optional: override default top N from config.yaml",
     )
 

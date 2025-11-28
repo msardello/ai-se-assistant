@@ -13,7 +13,6 @@ try:
     print("\n=== VALIDATED SUMMARY ===")
     print(summary)
 
-
 except FileNotFoundError as fnf:
     print("ERROR: Missing CSV File")
     print(fnf)

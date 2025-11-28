@@ -30,8 +30,6 @@ def validate_opportunity_data(df):
         if col not in df.columns:
             raise ValueError(f"Missing required column {col}")
 
-    # if df["Amount"].type not in ["int64", "float64"]:
-    #     raise ValueError("Column 'Amount' must be numeric")
     if df["Amount"].dtype.kind not in ["i", "u", "f"]:
         raise ValueError("Column 'Amount' must be numeric")
 

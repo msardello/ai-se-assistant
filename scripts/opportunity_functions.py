@@ -58,6 +58,3 @@ print(pipeline_by_owner(df))
 
 print("\n=== TOP 3 DEALS")
 print(top_n_deals(df, 3))
-
-# print("\n=== SUMMARY OBJECT ===")
-# print(pipeline_summary(df))
